@@ -1,0 +1,24 @@
+---
+dependencies:
+  - virhi.mysql
+  - { role: virhi.php, php_packages: ["php5-cli","php5-gd","php5-mysql", "php5-intl"] }
+#  - { role: virhi.apache, apache24_template: required-role/virhi.symfony/templates/vhost.symfony.conf.tpl, apache22_template: required-role/virhi.symfony/templates/vhost.symfony.conf.tpl, ws_vhost_env: prod, servername: prod.vansible.local, doc_root: /vagrant/web, directory_index: app.php }
+#  - { role: virhi.apache, apache24_template: required-role/virhi.symfony/templates/vhost.symfony.conf.tpl, apache22_template: required-role/virhi.symfony/templates/vhost.symfony.conf.tpl, ws_vhost_env: dev, servername: dev.vansible.local, doc_root: /vagrant/web, directory_index: app_dev.php }
+
+galaxy_info:
+  author: virhi
+  description: Symfony for Debian/Ubuntu.
+  license: "license (MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - precise
+    - raring
+    - saucy
+    - trusty
+  categories:
+    - web

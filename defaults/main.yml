@@ -1,0 +1,6 @@
+---
+# defaults file for virhi.symfony
+
+symfony:
+    project_name: monprojet
+    version: 2.3

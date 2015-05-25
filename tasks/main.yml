@@ -1,0 +1,27 @@
+---
+# tasks file for virhi.symfony
+
+
+- name: Install CURL
+  sudo: yes
+  apt: pkg=curl
+
+- stat: path=/vagrant/{{ symfony.project_name }}
+  register: projectstat
+
+- name: Get symfony installer
+  sudo: yes
+  command: curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
+
+- name: Get symfony installer
+  sudo: yes
+  command: chmod a+x /usr/local/bin/symfony
+
+- stat: path=/vagrant/{{ symfony.project_name }}
+  register: projectstat
+
+- name: Instal symfony
+  sudo: yes
+  command: symfony new {{ symfony.project_name }} {{ symfony.version }} chdir=/vagrant
+  when: not projectstat.stat.exists
+
