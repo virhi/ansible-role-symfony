@@ -13,8 +13,8 @@ dependencies:
   }
   - {
       role: virhi.apache,
-      apache24_template: required-role/virhi.symfony/templates/vhost24.symfony.conf.tpl,
-      apache22_template: required-role/virhi.symfony/templates/vhost22.symfony.conf.tpl,
+      apache24_template: vhost24.symfony.conf.tpl,
+      apache22_template: vhost22.symfony.conf.tpl,
       ws_vhost_env: dev,
       servername: dev.vansible.local,
       doc_root: /vagrant/symfony/web,
