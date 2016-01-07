@@ -2,9 +2,9 @@
     {% set servernames = servername.split() %}
     {% for servername in servernames %}
     {% if loop.first %}
-    ServerName {{ servername }}
+    ServerName {{ ws_vhost_env }}.{{ symfony.project_name }}.local
     {% else %}
-    ServerAlias {{ servername }}
+    ServerAlias {{ ws_vhost_env }}.{{ symfony.project_name }}.local
     {% endif %}
     {% endfor %}
 
@@ -14,18 +14,17 @@
     <Directory {{ doc_root }}>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride None
-        Order allow,deny
-        Allow from all
+        Require all granted
         RewriteEngine On
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteRule ^(.*)$ {{ directory_index }} [QSA,L]
     </Directory>
 
-    ErrorLog \${APACHE_LOG_DIR}/{{ symfony.project-name }}-error-{{ ws_vhost_env }}.log
+    ErrorLog /vagrant/{{ symfony.project_name }}-error-{{ ws_vhost_env }}.log
 
     # Possible values include: debug, info, notice, warn, error, crit,
     # alert, emerg.
     LogLevel warn
 
-    CustomLog \${APACHE_LOG_DIR}/{{ symfony.project-name }}-access-{{ ws_vhost_env }}.log combined
+    CustomLog /vagrant/log/{{ symfony.project_name }}-{{ ws_vhost_env }}-access.log combined
 </VirtualHost>
