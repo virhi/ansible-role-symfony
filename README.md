@@ -1,7 +1,7 @@
 Symfony
 =========
 
-Easy instal of symfony whit a apache mysql php configuration
+Easy instal of symfony whit apache|mysql|php configuration
 
 Requirements
 ------------
@@ -9,8 +9,8 @@ Requirements
 Role Variables
 --------------
 
-1. `project_name`: project name and folder name by default : symfony
-1. `version`: symfony version bu default : 2.3
+1. `project_name`: project name by default : symfony
+1. `version`: symfony version by default : 2.3
 
 Dependencies
 ------------
