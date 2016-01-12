@@ -31,6 +31,7 @@ Including an example of how to use your role (for instance, with variables passe
         symfony:
             project_name: myproject
             version: 2.3
+            dir: /
 
 License
 -------

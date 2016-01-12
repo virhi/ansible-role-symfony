@@ -4,3 +4,4 @@
 symfony:
     project_name: symfony
     version: 2.3
+    dir: /

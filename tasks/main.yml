@@ -6,7 +6,7 @@
   sudo: yes
   apt: pkg=curl
 
-- stat: path=/vagrant/{{ symfony.project_name }}
+- stat: path=/{{ symfony.dir }}/{{ symfony.project_name }}
   register: projectstat
 
 - name: Get symfony installer
@@ -17,11 +17,11 @@
   sudo: yes
   command: chmod a+x /usr/local/bin/symfony
 
-- stat: path=/vagrant/{{ symfony.project_name }}
+- stat: path={{ symfony.dir }}/{{ symfony.project_name }}
   register: projectstat
 
 - name: Instal symfony
   sudo: yes
-  command: symfony new {{ symfony.project_name }} {{ symfony.version }} chdir=/vagrant
+  command: symfony new {{ symfony.project_name }} {{ symfony.version }} chdir={{ symfony.dir }}
   when: not projectstat.stat.exists
 
